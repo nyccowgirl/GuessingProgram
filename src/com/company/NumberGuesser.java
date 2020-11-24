@@ -29,7 +29,9 @@ public class NumberGuesser {
      */
 
     public void higher() {
-        low = getCurrentGuess() + 1;
+        if (getCurrentGuess() != 100) {
+            low = getCurrentGuess() + 1;
+        }
     }
 
 
@@ -38,7 +40,9 @@ public class NumberGuesser {
      */
 
     public void lower() {
-        high = getCurrentGuess() - 1;
+        if (getCurrentGuess() != 1) {
+            high = getCurrentGuess() - 1;
+        }
     }
 
 
@@ -47,9 +51,7 @@ public class NumberGuesser {
      * @return Midpoint, rounded down, between low and high bounds
      */
 
-    public int getCurrentGuess() {
-        return (low + high) / 2;
-    }
+    public int getCurrentGuess() { return (low + high) / 2; }
 
 
     /**
