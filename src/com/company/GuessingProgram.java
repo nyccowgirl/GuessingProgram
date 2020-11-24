@@ -108,6 +108,26 @@ Think of a number between 1 and 100
 Is the number 50?	(h/l/c): l
 Is the number 25?	(h/l/c): c
 You picked 25? Great pick.
+Do you want to play again? (y/n): y
+Is the number 50?	(h/l/c): l
+Is the number 25?	(h/l/c): l
+Is the number 12?	(h/l/c): l
+Is the number 6?	(h/l/c): l
+Is the number 3?	(h/l/c): l
+Is the number 1?	(h/l/c): l
+Is the number 1?	(h/l/c): c
+You picked 1? Great pick.
+Do you want to play again? (y/n): y
+Think of a number between 1 and 100
+Is the number 50?	(h/l/c): h
+Is the number 75?	(h/l/c): h
+Is the number 88?	(h/l/c): h
+Is the number 94?	(h/l/c): h
+Is the number 97?	(h/l/c): h
+Is the number 99?	(h/l/c): h
+Is the number 100?	(h/l/c): h
+Is the number 100?	(h/l/c): c
+You picked 100? Great pick.
 Do you want to play again? (y/n): n
 Good bye.
 
