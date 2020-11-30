@@ -2,12 +2,13 @@ package com.company;
 
 /*
 Trang Hoang
-CS111B - Assignment 3B
+CS111B - Assignments 3B & 6A
  */
 
 public class NumberGuesser {
-    private int low;
-    private int high;
+    protected int low;
+    protected int high;
+    protected int guess;
     private final int originalLow;
     private final int originalHigh;
 
@@ -25,23 +26,23 @@ public class NumberGuesser {
 
 
     /**
-     * Resets number for higher bound based on guess (at midpoint of range).
+     * Resets number for higher bound based on guess.
      */
 
     public void higher() {
-        if (getCurrentGuess() != 100) {
-            low = getCurrentGuess() + 1;
+        if ((guess != originalHigh) && (guess != high)) {
+            low = guess + 1;
         }
     }
 
 
     /**
-     * Resets number for lower bound based on guess (at midpoint of range).
+     * Resets number for lower bound based on guess.
      */
 
     public void lower() {
-        if (getCurrentGuess() != 1) {
-            high = getCurrentGuess() - 1;
+        if ((guess != originalLow) && (guess != low)) {
+            high = guess - 1;
         }
     }
 
@@ -51,7 +52,10 @@ public class NumberGuesser {
      * @return Midpoint, rounded down, between low and high bounds
      */
 
-    public int getCurrentGuess() { return (low + high) / 2; }
+    public int getCurrentGuess() {
+        guess = (low + high) / 2;
+        return guess;
+    }
 
 
     /**

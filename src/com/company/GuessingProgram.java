@@ -11,7 +11,7 @@ public class GuessingProgram {
 
     private static final int MIN = 1;
     private static final int MAX = 100;
-    private static final NumberGuesser guesser = new NumberGuesser(MIN, MAX);
+    private static final RandomNumberGuesser guesser = new RandomNumberGuesser(MIN, MAX);
     private static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -27,23 +27,32 @@ public class GuessingProgram {
      */
 
     public static void playOneGame() {
-        int guess;
+//        int guess;
         char response;
 
         System.out.println("Think of a number between " + MIN + " and " + MAX);
 
         do {
-            guess = guesser.getCurrentGuess();
-            response = getUserResponseToGuess(guess);
+            System.out.println(guesser.getCurrentGuess());
+//            System.out.println(guess);
+//            int guess1 = guesser.getCurrentGuess();
+//            System.out.println(guess1);
+//            int guess1 = guesser.getCurrentGuess();
+//            System.out.println(guess1);
+            System.out.println(guesser.guess);
+            response = getUserResponseToGuess();
 
             if (response == 'h') {
                 guesser.higher();
             } else if (response == 'l') {
                 guesser.lower();
             }
+
+            System.out.println("high: " + guesser.high);
+            System.out.println("low: " + guesser.low);
         } while (!(response == 'c'));
 
-        System.out.println("You picked " + guess + "? Great pick.");
+        System.out.println("You picked " + guesser.guess + "? Great pick.");
         guesser.reset();
     }
 
@@ -72,15 +81,14 @@ public class GuessingProgram {
     /**
      * The getUserResponseToGuess method returns whether the user's number is higher, lower or correct compared to
      * the guess.
-     * @param guess based on the midpoint
      * @return char 'h' for higher, 'l' for lower, or 'c' for correct
      */
 
-    public static char getUserResponseToGuess(int guess) {
+    public static char getUserResponseToGuess() {
         char response;
 
         do {
-            System.out.print("Is the number " + guess + "?\t(h/l/c): ");
+            System.out.print("Is the number " + guesser.guess + "?\t(h/l/c): ");
             response = Character.toLowerCase(input.nextLine().charAt(0));
 
             if (!(response == 'h' || response == 'l' || response == 'c')) {
