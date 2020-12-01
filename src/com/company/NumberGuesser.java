@@ -9,12 +9,13 @@ public class NumberGuesser {
     protected int low;
     protected int high;
     protected int guess;
+    protected boolean generateNewRandom;
     private final int originalLow;
     private final int originalHigh;
 
 
     /**
-     * Sets constructor to low and high bounds of number guesser.
+     * Sets constructor to low and high bounds of number guesser and generateNewRandom to true.
      * @param lowerBound Number for lower bound
      * @param higherBound Number for higher bound
      */
@@ -22,57 +23,61 @@ public class NumberGuesser {
     NumberGuesser(int lowerBound, int higherBound) {
         low = originalLow = lowerBound;
         high = originalHigh = higherBound;
+        generateNewRandom = true;
     }
 
 
     /**
-     * Resets number for higher bound based on guess.
+     * Resets number for lower bound based on guess if number is higher than guess, subject to original bounds
+     * and modified bounds based on guess.
      */
 
     public void higher() {
         if ((guess != originalHigh) && (guess != high)) {
             low = guess + 1;
+            generateNewRandom = true;
         }
     }
 
 
     /**
-     * Resets number for lower bound based on guess.
+     * Resets number for higher bound based on guess if number is lower than guess, subject to original bounds
+     * and modified bounds based on guess.
      */
 
     public void lower() {
         if ((guess != originalLow) && (guess != low)) {
             high = guess - 1;
+            generateNewRandom = true;
         }
     }
 
 
     /**
-     * Calculates midpoint of the range of numbers, rounded down.
+     * Calculates midpoint of the range of numbers, rounded down if generateNewRandom is true.
      * @return Midpoint, rounded down, between low and high bounds
      */
 
     public int getCurrentGuess() {
-        guess = (low + high) / 2;
+        if (generateNewRandom) {
+            guess = (low + high) / 2;
+            generateNewRandom = false;
+        }
+
         return guess;
     }
 
 
     /**
-     * Resets low and high bounds to original values of constructor.
+     * Resets low and high bounds, as well as generateNewRandom, to original values of constructor.
      */
 
     public void reset() {
         low = originalLow;
         high = originalHigh;
+        generateNewRandom = true;
     }
 }
 
 
-/*
-Test of reset() with GuessingProgramWithRandom.java:
 
-Average number of guesses: 5.8116
-
-Process finished with exit code 0
- */

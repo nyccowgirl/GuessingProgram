@@ -27,19 +27,11 @@ public class GuessingProgram {
      */
 
     public static void playOneGame() {
-//        int guess;
         char response;
 
         System.out.println("Think of a number between " + MIN + " and " + MAX);
 
         do {
-            System.out.println(guesser.getCurrentGuess());
-//            System.out.println(guess);
-//            int guess1 = guesser.getCurrentGuess();
-//            System.out.println(guess1);
-//            int guess1 = guesser.getCurrentGuess();
-//            System.out.println(guess1);
-            System.out.println(guesser.guess);
             response = getUserResponseToGuess();
 
             if (response == 'h') {
@@ -48,11 +40,9 @@ public class GuessingProgram {
                 guesser.lower();
             }
 
-            System.out.println("high: " + guesser.high);
-            System.out.println("low: " + guesser.low);
         } while (!(response == 'c'));
 
-        System.out.println("You picked " + guesser.guess + "? Great pick.");
+        System.out.println("You picked " + guesser.getCurrentGuess() + "? Great pick.");
         guesser.reset();
     }
 
@@ -88,7 +78,7 @@ public class GuessingProgram {
         char response;
 
         do {
-            System.out.print("Is the number " + guesser.guess + "?\t(h/l/c): ");
+            System.out.print("Is the number " + guesser.getCurrentGuess() + "?\t(h/l/c): ");
             response = Character.toLowerCase(input.nextLine().charAt(0));
 
             if (!(response == 'h' || response == 'l' || response == 'c')) {
@@ -103,39 +93,55 @@ public class GuessingProgram {
 
 /*
 Think of a number between 1 and 100
-Is the number 50?	(h/l/c): h
 Is the number 75?	(h/l/c): l
-Is the number 62?	(h/l/c): h
-Is the number 68?	(h/l/c): h
-Is the number 71?	(h/l/c): h
-Is the number 73?	(h/l/c): l
-Is the number 72?	(h/l/c): c
-You picked 72? Great pick.
-Do you want to play again? (y/n): y
-Think of a number between 1 and 100
-Is the number 50?	(h/l/c): l
-Is the number 25?	(h/l/c): c
-You picked 25? Great pick.
-Do you want to play again? (y/n): y
-Is the number 50?	(h/l/c): l
-Is the number 25?	(h/l/c): l
-Is the number 12?	(h/l/c): l
-Is the number 6?	(h/l/c): l
-Is the number 3?	(h/l/c): l
+Is the number 44?	(h/l/c): l
+Is the number 42?	(h/l/c): l
+Is the number 2?	(h/l/c): l
 Is the number 1?	(h/l/c): l
+Is the number 1?	(h/l/c): h
 Is the number 1?	(h/l/c): c
 You picked 1? Great pick.
 Do you want to play again? (y/n): y
 Think of a number between 1 and 100
-Is the number 50?	(h/l/c): h
-Is the number 75?	(h/l/c): h
+Is the number 79?	(h/l/c): h
+Is the number 85?	(h/l/c): h
 Is the number 88?	(h/l/c): h
-Is the number 94?	(h/l/c): h
 Is the number 97?	(h/l/c): h
 Is the number 99?	(h/l/c): h
 Is the number 100?	(h/l/c): h
+Is the number 100?	(h/l/c): l
 Is the number 100?	(h/l/c): c
 You picked 100? Great pick.
+Do you want to play again? (y/n): y
+Think of a number between 1 and 100
+Is the number 58?	(h/l/c): h
+Is the number 92?	(h/l/c): l
+Is the number 84?	(h/l/c): l
+Is the number 83?	(h/l/c): l
+Is the number 82?	(h/l/c): l
+Is the number 74?	(h/l/c): h
+Is the number 78?	(h/l/c): l
+Is the number 76?	(h/l/c): h
+Is the number 77?	(h/l/c): h
+Is the number 77?	(h/l/c): l
+Is the number 77?	(h/l/c): c
+You picked 77? Great pick.
+Do you want to play again? (y/n): y
+Think of a number between 1 and 100
+Is the number 70?	(h/l/c): l
+Is the number 58?	(h/l/c): l
+Is the number 5?	(h/l/c): h
+Is the number 46?	(h/l/c): l
+Is the number 43?	(h/l/c): l
+Is the number 22?	(h/l/c): l
+Is the number 6?	(h/l/c): h
+Is the number 21?	(h/l/c): l
+Is the number 14?	(h/l/c): l
+Is the number 12?	(h/l/c): l
+Is the number 9?	(h/l/c): h
+Is the number 10?	(h/l/c): h
+Is the number 11?	(h/l/c): c
+You picked 11? Great pick.
 Do you want to play again? (y/n): n
 Good bye.
 
