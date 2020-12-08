@@ -2,7 +2,7 @@ package com.company;
 
 /*
 Trang Hoang
-CS111B - Assignments 3B & 6A
+CS111B - Assignments 3B, 6A & 7A
  */
 
 public class NumberGuesser {
@@ -32,8 +32,12 @@ public class NumberGuesser {
      * and modified bounds based on guess.
      */
 
-    public void higher() {
-        if ((guess != originalHigh) && (guess != high)) {
+    public void higher() throws IllegalStateException {
+        if (guess >= originalHigh) {
+            throw new IllegalStateException("The number cannot be greater than " + originalHigh + ".");
+        } else if (guess == high) {
+            throw new IllegalStateException("The number " + (guess + 1) + " was already guessed.");
+        } else {
             low = guess + 1;
             generateNewRandom = true;
         }
@@ -45,8 +49,12 @@ public class NumberGuesser {
      * and modified bounds based on guess.
      */
 
-    public void lower() {
-        if ((guess != originalLow) && (guess != low)) {
+    public void lower() throws IllegalStateException {
+        if (guess <= originalLow) {
+            throw new IllegalStateException("The number cannot be less than " + originalLow + ".");
+        } else if (guess == low) {
+            throw new IllegalStateException("The number " + (guess - 1) + " was already guessed.");
+        } else {
             high = guess - 1;
             generateNewRandom = true;
         }
